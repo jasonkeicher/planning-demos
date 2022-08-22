@@ -1,0 +1,30 @@
+trigger: example_form
+title: Example form
+description: Example of how to use a form
+steps:
+- type: form
+  style: embedded
+  body:
+  - type: dropdown
+    attributes:
+      label: Color
+      description: What's the status of your project?
+      options:
+      - label: 🟢 Green
+        value: 🟢
+      - label: 🟡 Yellow
+        value: 🟡
+      - label: 🔴 Red
+        value: 🔴
+  - type: textarea
+    attributes:
+      label: Details
+      description: What should the team know about the status of your project?
+      placeholder: Recent achievements, blockers, requests for help, etc.
+  actions:
+    submit: "Create"
+    cancel: "Discard"
+- type: fill
+  template: |-
+    Color: {{ data.Color }}
+    Details: {{ data.Details }}
